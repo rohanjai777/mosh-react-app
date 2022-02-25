@@ -18,20 +18,37 @@ class Counter extends Component {
     console.log("props", this.props.counter.value);
     console.log("state" + this.props.counter.value);
     return (
-      <div>
-        <span className={`badge-block ${classes}`}>{count}</span>
-        <button
-          className="btn btn-primary m-2"
-          onClick={() => this.props.onIncrement(this.props.counter)}
-        >
-          Increment
-        </button>
-        <button
-          className="btn btn-primary m-2"
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-        >
-          Delete
-        </button>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <span className={`badge-block ${classes}`}>{count}</span>
+          </div>
+          <div class="col">
+            <button
+              className="btn btn-primary m-2"
+              onClick={() => this.props.onIncrement(this.props.counter)}
+            >
+              +
+            </button>
+          </div>
+          <div class="col">
+            <button
+              className="btn btn-primary m-2"
+              onClick={() => this.props.onDecrement(this.props.counter)}
+              disabled={this.props.counter.value === 0 ? true : false}
+            >
+              -
+            </button>
+          </div>
+          <div class="col-">
+            <button
+              className="btn btn-primary m-2"
+              onClick={() => this.props.onDelete(this.props.counter.id)}
+            >
+              X
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

@@ -35,6 +35,15 @@ class App extends Component {
     this.setState({ counters: resetCounters }); // set state equal to copy
   };
 
+  handleDecrement = (counter) => {
+    let resetCounters = [...this.state.counters]; // copy array
+    let index = resetCounters.indexOf(counter); // find index of params counter passed
+    resetCounters[index] = { ...counter }; // replace with copy of counter
+    resetCounters[index].value =
+      resetCounters[index].value === 0 ? 0 : resetCounters[index].value - 1; // increment value of copy
+    this.setState({ counters: resetCounters }); // set state equal to copy
+  };
+
   render() {
     return (
       <>
@@ -45,6 +54,7 @@ class App extends Component {
           counters={this.state.counters}
           onIncrement={this.handleIncrement}
           onDelete={this.handleDelete}
+          onDecrement={this.handleDecrement}
           onReset={this.handleReset}
         />
       </>
