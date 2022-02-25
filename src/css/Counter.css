@@ -1,0 +1,9 @@
+* {
+  padding: 2px;
+}
+
+.badge-block {
+  margin: 10px;
+  font-size: 18px;
+  text-align: center;
+}
